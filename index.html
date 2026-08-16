@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Global News — Türkçe ve İngilizce modern haber portalı.">
+<title>GLOBALNEWS — Dünya Haberleri</title>
+<style>
+:root{
+ --bg:#f4f6f8;--surface:#fff;--surface2:#eef1f4;--text:#10151b;--muted:#68727d;
+ --line:#dfe4e8;--dark:#0b1016;--dark2:#111923;--accent:#d71920;--accent2:#ff4b51;
+ --shadow:0 14px 45px rgba(12,20,30,.10);--radius:18px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{text-decoration:none;color:inherit}button,input{font:inherit}.container{width:min(1200px,92%);margin:auto}
+.topline{height:5px;background:linear-gradient(90deg,var(--accent),#111 55%,var(--accent))}
+.header{position:sticky;top:0;z-index:50;background:rgba(11,16,22,.94);backdrop-filter:blur(18px);color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.nav{height:78px;display:flex;align-items:center;gap:24px}.brand{font-weight:950;letter-spacing:-1.5px;font-size:28px}.brand span{color:#ff3038}.brand small{display:block;font-size:8px;letter-spacing:3px;color:#9fa9b4;margin-top:-3px}
+.navlinks{display:flex;gap:19px;align-items:center;margin-left:auto}.navlinks a{font-size:13px;font-weight:800;color:#cdd4dc;transition:.25s}.navlinks a:hover{color:#fff;transform:translateY(-1px)}
+.actions{display:flex;gap:8px;align-items:center}.iconbtn,.langbtn,.loginbtn{border:1px solid #303a45;background:#151e28;color:#fff;border-radius:10px;padding:10px 12px;cursor:pointer;transition:.25s}.iconbtn:hover,.langbtn:hover,.loginbtn:hover{border-color:#657281;transform:translateY(-2px)}
+.loginbtn{background:var(--accent);border-color:var(--accent);font-weight:850}.hamb{display:none}
+.ticker{background:var(--accent);color:#fff;overflow:hidden;white-space:nowrap}.tickerin{display:flex;height:38px;align-items:center}.breaking{font-weight:950;font-size:12px;background:#b50e14;padding:11px 15px;z-index:2}.tickertrack{display:inline-block;padding-left:22px;animation:marquee 26s linear infinite;font-size:12px;font-weight:750}@keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.hero{padding:26px 0 12px}.heroGrid{display:grid;grid-template-columns:2fr 1fr;gap:18px}.slider{position:relative;height:455px;border-radius:24px;overflow:hidden;background:#111;box-shadow:var(--shadow)}.slide{position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .65s,transform 5s;pointer-events:none}.slide.active{opacity:1;transform:scale(1);pointer-events:auto}.slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.63)}.slideContent{position:absolute;left:34px;right:34px;bottom:36px;color:#fff}.tag{display:inline-flex;background:var(--accent);padding:6px 10px;border-radius:7px;font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.7px}.slide h1{font-size:clamp(28px,4vw,52px);line-height:1.02;letter-spacing:-1.8px;max-width:780px;margin:13px 0}.slide p{max-width:680px;color:#e6eaee;font-size:14px}.read{display:inline-flex;margin-top:8px;background:#fff;color:#111;padding:11px 15px;border-radius:10px;font-weight:900;font-size:12px}.sliderNav{position:absolute;right:20px;top:20px;display:flex;gap:7px}.sliderNav button{border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;width:38px;height:38px;border-radius:10px;cursor:pointer}.dots{position:absolute;bottom:18px;right:28px;display:flex;gap:6px}.dot{width:7px;height:7px;border-radius:50%;background:#aaa;border:0;padding:0}.dot.active{width:24px;border-radius:10px;background:#fff}
+.side{background:var(--surface);border-radius:24px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column}.side h2{margin:0 0 12px;font-size:20px}.sideitem{padding:15px 0;border-top:1px solid var(--line)}.sideitem b{display:block;font-size:13px;line-height:1.35}.sideitem span{font-size:11px;color:var(--muted);display:block;margin-top:6px}.ad{min-height:92px;border:1px dashed #bcc4cc;background:linear-gradient(135deg,#fff,#f0f3f5);border-radius:15px;display:flex;align-items:center;justify-content:center;color:#8a949e;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
+.adWide{margin:18px 0}.section{padding:22px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;margin-bottom:16px}.sectionHead h2{margin:0;font-size:25px;letter-spacing:-.7px}.sectionHead p{margin:4px 0 0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--surface);border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(10,20,30,.06);transition:.3s;border:1px solid rgba(0,0,0,.03)}.card:hover{transform:translateY(-7px);box-shadow:0 18px 42px rgba(10,20,30,.13)}.cardImg{height:205px;overflow:hidden;position:relative}.cardImg img{width:100%;height:100%;object-fit:cover;transition:.55s}.card:hover .cardImg img{transform:scale(1.07)}.cardBody{padding:17px}.cardBody h3{margin:8px 0;font-size:18px;line-height:1.22;letter-spacing:-.3px}.meta{font-size:10px;color:var(--muted);font-weight:750}.cardBody p{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}
+.finance{display:grid;grid-template-columns:1fr 1fr;gap:18px}.tableBox{background:var(--surface);border-radius:18px;box-shadow:0 8px 28px rgba(10,20,30,.06);overflow:hidden}.tableTitle{padding:18px 18px 12px;border-bottom:1px solid var(--line)}.tableTitle h3{margin:0;font-size:18px}.tableTitle span{font-size:10px;color:var(--muted)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line);font-size:12px}th{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);background:#fafbfc}tr:last-child td{border-bottom:0}.up{color:#0b8b55;font-weight:900}.down{color:#c51d2a;font-weight:900}.refresh{font-size:10px;color:var(--muted);padding:10px 15px;text-align:right}
+.contentGrid{display:grid;grid-template-columns:2fr 1fr;gap:18px}.rankbox{background:var(--dark);color:#fff;border-radius:20px;padding:20px}.rank{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid #27313c}.rank:last-child{border:0}.rankno{font-size:20px;font-weight:950;color:#697481}.rank b{font-size:13px;line-height:1.3}.rank small{color:#8f9aa6}.videoGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.video{height:165px;border-radius:15px;overflow:hidden;position:relative;background:#111}.video img{width:100%;height:100%;object-fit:cover;transition:.4s;filter:brightness(.7)}.video:hover img{transform:scale(1.06);filter:brightness(.5)}.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-weight:950}.video span{position:absolute;left:12px;bottom:10px;color:#fff;font-size:11px;font-weight:850}
+.newsletter{margin:25px 0;background:linear-gradient(120deg,#101720,#1d2935);color:#fff;border-radius:24px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:25px}.newsletter h2{margin:0 0 5px}.newsletter p{margin:0;color:#aeb8c2;font-size:12px}.form{display:flex;gap:8px;min-width:390px}.form input{flex:1;padding:13px;border:0;border-radius:10px}.form button{border:0;border-radius:10px;padding:0 17px;background:var(--accent);color:#fff;font-weight:900}
+.footer{background:#090e13;color:#c5ccd3;margin-top:20px}.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:30px;padding:48px 0}.footer h3{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:1px}.footer a{display:block;color:#8f9aa5;font-size:11px;margin:10px 0}.footer a:hover{color:#fff}.footBrand{font-size:25px;font-weight:950;color:#fff}.social{display:flex;gap:7px}.social a{width:34px;height:34px;border:1px solid #27313b;border-radius:9px;display:grid;place-items:center;color:#fff}.bottom{border-top:1px solid #202932;padding:16px 0;color:#6f7a84;font-size:10px;display:flex;justify-content:space-between}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.overlay.open{display:flex}.modal{width:min(620px,100%);background:#fff;border-radius:22px;padding:25px;max-height:90vh;overflow:auto}.close{float:right;border:0;background:#eef1f4;width:34px;height:34px;border-radius:9px;cursor:pointer}.modal h2{margin-top:3px}.searchInput{width:100%;padding:15px;border:1px solid var(--line);border-radius:12px}.results{margin-top:15px}.result{padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer}.authTabs{display:flex;gap:7px;margin:15px 0}.authTabs button{flex:1;padding:11px;border:1px solid var(--line);background:#fff;border-radius:10px;font-weight:850}.authTabs .selected{background:var(--dark);color:#fff}.authForm input{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;margin:6px 0}.primary{width:100%;border:0;background:var(--accent);color:#fff;padding:13px;border-radius:10px;font-weight:900;margin-top:8px}.articleHero{width:100%;height:280px;object-fit:cover;border-radius:15px}.articleText{font-size:15px;line-height:1.8;color:#3c4650}.articleText p{margin:16px 0}.cookie{position:fixed;left:18px;bottom:18px;z-index:90;background:#101720;color:#fff;padding:14px 16px;border-radius:14px;box-shadow:var(--shadow);display:flex;gap:15px;align-items:center;font-size:11px;max-width:470px}.cookie button{border:0;background:#fff;color:#111;padding:8px 12px;border-radius:8px;font-weight:900;cursor:pointer}
+.reveal{opacity:0;transform:translateY(18px);transition:.65s}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){.navlinks{display:none}.hamb{display:block}.heroGrid,.contentGrid,.finance{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.newsletter{display:block}.form{margin-top:15px;min-width:0}}
+@media(max-width:620px){.nav{height:68px}.brand{font-size:23px}.actions .iconbtn{display:none}.slider{height:410px}.grid,.videoGrid{grid-template-columns:1fr}.slideContent{left:22px;right:22px;bottom:30px}.slide h1{font-size:31px}.foot{grid-template-columns:1fr}.bottom{display:block}.bottom span{display:block;margin-top:7px}.cookie{left:10px;right:10px;bottom:10px}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#top">GLOBAL<span>NEWS</span><small>THE WORLD • THE STORY • THE TRUTH</small></a>
+    <nav class="navlinks">
+      <a href="#world" data-i18n="world">Dünya</a><a href="#business" data-i18n="business">Ekonomi</a>
+      <a href="#technology" data-i18n="technology">Teknoloji</a><a href="#sport" data-i18n="sport">Spor</a>
+      <a href="#culture" data-i18n="culture">Kültür</a><a href="#science" data-i18n="science">Bilim</a>
+    </nav>
+    <div class="actions">
+      <button class="langbtn" id="langBtn">EN</button>
+      <button class="iconbtn" id="searchBtn">⌕</button>
+      <button class="loginbtn" id="authBtn" data-i18n="login">Giriş / Üye Ol</button>
+      <button class="iconbtn hamb" id="menuBtn">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="ticker"><div class="container tickerin"><div class="breaking" data-i18n="breaking">SON DAKİKA</div><div class="tickertrack" id="tickerText">Küresel piyasalarda hareketlilik • Dünya liderlerinden yeni açıklamalar • Teknoloji sektöründe yeni gelişmeler • Spor dünyasında günün öne çıkanları</div></div></div>
+
+<main id="top">
+<section class="hero container">
+ <div class="heroGrid">
+  <div class="slider" id="slider">
+   <article class="slide active" data-article="1"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1500&q=85" alt="Dünya siyaseti">
+    <div class="slideContent"><span class="tag">WORLD</span><h1 data-tr="Küresel gündem yeni bir döneme giriyor" data-en="The global agenda enters a new era">Küresel gündem yeni bir döneme giriyor</h1><p data-tr="Dünyanın farklı bölgelerinden gelen son gelişmeler piyasaları ve diplomatik trafiği etkiliyor." data-en="Latest developments from around the world are influencing markets and diplomatic activity.">Dünyanın farklı bölgelerinden gelen son gelişmeler piyasaları ve diplomatik trafiği etkiliyor.</p><a href="#article-1" class="read" data-i18n="read">Haberi Oku →</a></div>
+   </article>
+   <article class="slide" data-article="2"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1500&q=85" alt="Ekonomi">
+    <div class="slideContent"><span class="tag">BUSINESS</span><h1 data-tr="Piyasalarda yeni haftanın kritik başlıkları" data-en="Key market stories for the new week">Piyasalarda yeni haftanın kritik başlıkları</h1><p data-tr="Yatırımcıların gözü merkez bankaları, enerji fiyatları ve küresel büyüme verilerinde." data-en="Investors are watching central banks, energy prices and global growth data.">Yatırımcıların gözü merkez bankaları, enerji fiyatları ve küresel büyüme verilerinde.</p><a href="#article-2" class="read" data-i18n="read">Haberi Oku →</a></div>
+   </article>
+   <article class="slide" data-article="3"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1500&q=85" alt="Teknoloji">
+    <div class="slideContent"><span class="tag">TECH</span><h1 data-tr="Yapay zekâ teknolojilerinde yeni yarış" data-en="A new race in artificial intelligence">Yapay zekâ teknolojilerinde yeni yarış</h1><p data-tr="Yeni nesil modeller, çip teknolojileri ve otomasyon yatırımları gündemin merkezinde." data-en="Next-generation models, chips and automation investments are at the center of the agenda.">Yeni nesil modeller, çip teknolojileri ve otomasyon yatırımları gündemin merkezinde.</p><a href="#article-3" class="read" data-i18n="read">Haberi Oku →</a></div>
+   </article>
+   <div class="sliderNav"><button id="prev">‹</button><button id="next">›</button></div><div class="dots" id="dots"></div>
+  </div>
+  <aside class="side">
+   <h2 data-i18n="latest">Son Haberler</h2>
+   <div class="sideitem"><b data-tr="Küresel enerji piyasalarında yeni fiyatlama" data-en="New pricing dynamics in global energy markets">Küresel enerji piyasalarında yeni fiyatlama</b><span>12 dk • Economy</span></div>
+   <div class="sideitem"><b data-tr="Yeni nesil yapay zekâ modelleri tanıtıldı" data-en="Next-generation AI models unveiled">Yeni nesil yapay zekâ modelleri tanıtıldı</b><span>28 dk • Technology</span></div>
+   <div class="sideitem"><b data-tr="Dünya sporundan günün öne çıkanları" data-en="Top stories from world sports">Dünya sporundan günün öne çıkanları</b><span>41 dk • Sport</span></div>
+   <div class="ad" style="margin-top:auto">REKLAM • 300 × 250</div>
+  </aside>
+ </div>
+</section>
+
+<div class="container"><div class="ad adWide">REKLAM ALANI • 970 × 90</div></div>
+
+<section class="section container reveal" id="world">
+ <div class="sectionHead"><div><h2 data-i18n="featured">Öne Çıkan Haberler</h2><p data-i18n="featuredSub">Dünyadan seçilmiş güncel gelişmeler</p></div></div>
+ <div class="grid">
+  <a class="card" href="#article-4"><div class="cardImg"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="cardBody"><span class="tag">WORLD</span><h3 data-tr="Diplomasi trafiğinde yoğun hafta" data-en="A busy week in international diplomacy">Diplomasi trafiğinde yoğun hafta</h3><div class="meta">16 Ağustos 2026 • 6 dk</div><p data-tr="Başkentlerdeki görüşmeler bölgesel dengelerin geleceğine ilişkin yeni mesajlar verdi." data-en="Meetings in capitals delivered new messages on the future of regional balances.">Başkentlerdeki görüşmeler bölgesel dengelerin geleceğine ilişkin yeni mesajlar verdi.</p></div></a>
+  <a class="card" href="#article-5" id="business"><div class="cardImg"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="cardBody"><span class="tag">BUSINESS</span><h3 data-tr="Finans dünyasında veri odaklı dönüşüm" data-en="Data-driven transformation in finance">Finans dünyasında veri odaklı dönüşüm</h3><div class="meta">16 Ağustos 2026 • 8 dk</div><p data-tr="Kur, faiz ve emtia verilerini takip eden yatırımcılar için yeni araçlar öne çıkıyor." data-en="New tools are emerging for investors tracking FX, rates and commodities.">Kur, faiz ve emtia verilerini takip eden yatırımcılar için yeni araçlar öne çıkıyor.</p></div></a>
+  <a class="card" href="#article-6" id="technology"><div class="cardImg"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="cardBody"><span class="tag">TECH</span><h3 data-tr="Teknolojide yapay zekâ yatırımları hızlanıyor" data-en="AI investments accelerate across technology">Teknolojide yapay zekâ yatırımları hızlanıyor</h3><div class="meta">16 Ağustos 2026 • 5 dk</div><p data-tr="Şirketler otomasyon, veri altyapısı ve yapay zekâ ürünlerine yatırımlarını artırıyor." data-en="Companies are increasing investments in automation, data infrastructure and AI products.">Şirketler otomasyon, veri altyapısı ve yapay zekâ ürünlerine yatırımlarını artırıyor.</p></div></a>
+  <a class="card" href="#article-7" id="sport"><div class="cardImg"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="cardBody"><span class="tag">SPORT</span><h3 data-tr="Spor dünyasında sezonun kritik karşılaşmaları" data-en="Season-defining matches in world sports">Spor dünyasında sezonun kritik karşılaşmaları</h3><div class="meta">16 Ağustos 2026 • 4 dk</div><p data-tr="Takımların sezon planlarını belirleyecek önemli karşılaşmalar yaklaşıyor." data-en="Important fixtures that could shape teams' seasons are approaching.">Takımların sezon planlarını belirleyecek önemli karşılaşmalar yaklaşıyor.</p></div></a>
+  <a class="card" href="#article-8" id="culture"><div class="cardImg"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="cardBody"><span class="tag">CULTURE</span><h3 data-tr="Sinema ve kültür dünyasından yeni yapımlar" data-en="New releases from film and culture">Sinema ve kültür dünyasından yeni yapımlar</h3><div class="meta">16 Ağustos 2026 • 7 dk</div><p data-tr="Yeni sezonun dikkat çeken yapımları ve kültür etkinlikleri izleyicilerle buluşuyor." data-en="Notable new productions and cultural events are reaching audiences this season.">Yeni sezonun dikkat çeken yapımları ve kültür etkinlikleri izleyicilerle buluşuyor.</p></div></a>
+  <a class="card" href="#article-9" id="science"><div class="cardImg"><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80" alt=""></div><div class="cardBody"><span class="tag">SCIENCE</span><h3 data-tr="Bilim insanlarından yeni araştırma" data-en="Scientists announce a new study">Bilim insanlarından yeni araştırma</h3><div class="meta">16 Ağustos 2026 • 9 dk</div><p data-tr="Yeni araştırma, gelecekteki teknoloji ve sağlık çalışmalarına dair önemli veriler sunuyor." data-en="A new study offers important data for future technology and health research.">Yeni araştırma, gelecekteki teknoloji ve sağlık çalışmalarına dair önemli veriler sunuyor.</p></div></a>
+ </div>
+</section>
+
+<section class="section container reveal" id="markets">
+ <div class="sectionHead"><div><h2 data-i18n="markets">Piyasa Takibi</h2><p data-i18n="marketsSub">Demo değerler — gerçek projede API üzerinden canlı veriye bağlanabilir.</p></div></div>
+ <div class="finance">
+  <div class="tableBox"><div class="tableTitle"><h3 data-i18n="fx">Döviz Kurları</h3><span>TRY bazlı gösterim</span></div><table><thead><tr><th>Varlık</th><th>Alış</th><th>Satış</th><th>Değişim</th></tr></thead><tbody id="fxTable"></tbody></table><div class="refresh" id="fxTime">Son güncelleme: —</div></div>
+  <div class="tableBox"><div class="tableTitle"><h3 data-i18n="gold">Altın & Gümüş</h3><span>TL / birim</span></div><table><thead><tr><th>Varlık</th><th>Alış</th><th>Satış</th><th>Değişim</th></tr></thead><tbody id="metalTable"></tbody></table><div class="refresh">Son güncelleme: —</div></div>
+ </div>
+</section>
+
+<div class="container"><div class="ad adWide">REKLAM ALANI • RESPONSIVE BILLBOARD</div></div>
+
+<section class="section container reveal">
+ <div class="contentGrid">
+  <div><div class="sectionHead"><div><h2 data-i18n="popular">Çok Okunanlar</h2><p data-i18n="popularSub">Okurların bugün en çok ilgi gösterdiği haberler</p></div></div>
+   <div class="rankbox">
+    <div class="rank"><div class="rankno">01</div><div><b data-tr="Küresel ekonomide yeni beklentiler" data-en="New expectations for the global economy">Küresel ekonomide yeni beklentiler</b><small>WORLD • 24.8K views</small></div><strong>→</strong></div>
+    <div class="rank"><div class="rankno">02</div><div><b data-tr="Döviz piyasasında haftanın görünümü" data-en="Weekly outlook for currency markets">Döviz piyasasında haftanın görünümü</b><small>BUSINESS • 19.2K views</small></div><strong>→</strong></div>
+    <div class="rank"><div class="rankno">03</div><div><b data-tr="Yapay zekâda yeni dönemin işaretleri" data-en="Signs of a new era in AI">Yapay zekâda yeni dönemin işaretleri</b><small>TECH • 17.6K views</small></div><strong>→</strong></div>
+    <div class="rank"><div class="rankno">04</div><div><b data-tr="Spor dünyasının güncel gündemi" data-en="The latest agenda in world sports">Spor dünyasının güncel gündemi</b><small>SPORT • 15.1K views</small></div><strong>→</strong></div>
+   </div>
+  </div>
+  <div><div class="sectionHead"><div><h2 data-i18n="video">Video Haber</h2><p>GLOBALNEWS TV</p></div></div><div class="videoGrid">
+    <a class="video" href="#article-10"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=700&q=80"><i class="play">▶</i><span>Günün özeti</span></a>
+    <a class="video" href="#article-11"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=700&q=80"><i class="play">▶</i><span>Dünya gündemi</span></a>
+    <a class="video" href="#article-12"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80"><i class="play">▶</i><span>Teknoloji</span></a>
+    <a class="video" href="#article-13"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80"><i class="play">▶</i><span>Spor</span></a>
+   </div></div>
+ </div>
+</section>
+
+<section class="container"><div class="newsletter"><div><h2 data-i18n="newsletter">Gündemi e-postana taşı.</h2><p data-i18n="newsletterSub">Günün önemli haberlerini seçerek al.</p></div><div class="form"><input type="email" placeholder="E-posta adresiniz"><button data-i18n="subscribe">Abone Ol</button></div></div></section>
+</main>
+
+<footer class="footer"><div class="container foot">
+ <div><div class="footBrand">GLOBAL<span>NEWS</span></div><p style="font-size:11px;color:#7f8a95;line-height:1.6" data-i18n="footerDesc">Dünyanın önemli gelişmelerini hızlı, anlaşılır ve güvenilir bir haber deneyimiyle sunmak için tasarlanmış modern haber platformu.</p><div class="social"><a href="#">X</a><a href="#">in</a><a href="#">▶</a><a href="#">f</a></div></div>
+ <div><h3 data-i18n="categories">Kategoriler</h3><a href="#world">Dünya</a><a href="#business">Ekonomi</a><a href="#technology">Teknoloji</a><a href="#sport">Spor</a><a href="#science">Bilim</a></div>
+ <div><h3 data-i18n="services">İçerik</h3><a href="#">Son Dakika</a><a href="#">Video</a><a href="#">Foto Galeri</a><a href="#">Yazarlar</a><a href="#">Podcast</a></div>
+ <div><h3 data-i18n="corporate">Kurumsal</h3><a href="#">Hakkımızda</a><a href="#">İletişim</a><a href="#">Kariyer</a><a href="#">Reklam</a><a href="#">Basın</a></div>
+ <div><h3 data-i18n="legal">Bilgi</h3><a href="#">Gizlilik</a><a href="#">Çerez Politikası</a><a href="#">Kullanım Şartları</a><a href="#">KVKK</a><a href="#">Editoryal İlkeler</a></div>
+</div><div class="container bottom"><span>© 2026 GLOBALNEWS</span><span data-i18n="demo">Bu arayüz demo amaçlıdır. Kur verileri canlı finans API'si değildir.</span></div></footer>
+
+<div class="overlay" id="searchOverlay"><div class="modal"><button class="close" data-close="searchOverlay">×</button><h2 data-i18n="search">Haber Ara</h2><input class="searchInput" id="searchInput" placeholder="Haber, konu veya kategori..."><div class="results" id="results"></div></div></div>
+
+<div class="overlay" id="authOverlay"><div class="modal"><button class="close" data-close="authOverlay">×</button><h2 data-i18n="member">GLOBALNEWS Üyeliği</h2><p style="color:var(--muted);font-size:12px" data-i18n="memberSub">Favori haberlerini kaydetmek ve kişisel akışını oluşturmak için hesabını kullan.</p><div class="authTabs"><button class="selected">Giriş Yap</button><button>Üye Ol</button></div><div class="authForm"><input type="email" placeholder="E-posta"><input type="password" placeholder="Şifre"><button class="primary" data-i18n="continue">Devam Et</button></div><p style="font-size:10px;color:var(--muted)">Demo arayüz. Gerçek sistemde OAuth, e-posta doğrulama, CSRF, rate limit, 2FA ve güvenli session yönetimi eklenmelidir.</p></div></div>
+
+<div class="overlay" id="articleOverlay"><div class="modal"><button class="close" data-close="articleOverlay">×</button><img id="articleImg" class="articleHero" alt=""><span class="tag" id="articleTag">WORLD</span><h2 id="articleTitle"></h2><div class="meta" id="articleMeta"></div><div class="articleText" id="articleBody"></div><div class="ad" style="margin-top:20px">REKLAM • 300 × 250</div></div></div>
+
+<div class="cookie" id="cookie"><span data-i18n="cookie">Bu demo site deneyimi için çerezler kullanılabilir.</span><button id="cookieOk">Tamam</button></div>
+
+<script>
+const I18N={
+tr:{world:"Dünya",business:"Ekonomi",technology:"Teknoloji",sport:"Spor",culture:"Kültür",science:"Bilim",login:"Giriş / Üye Ol",breaking:"SON DAKİKA",read:"Haberi Oku →",latest:"Son Haberler",featured:"Öne Çıkan Haberler",featuredSub:"Dünyadan seçilmiş güncel gelişmeler",markets:"Piyasa Takibi",marketsSub:"Demo değerler — gerçek projede API üzerinden canlı veriye bağlanabilir.",fx:"Döviz Kurları",gold:"Altın & Gümüş",popular:"Çok Okunanlar",popularSub:"Okurların bugün en çok ilgi gösterdiği haberler",video:"Video Haber",newsletter:"Gündemi e-postana taşı.",newsletterSub:"Günün önemli haberlerini seçerek al.",subscribe:"Abone Ol",footerDesc:"Dünyanın önemli gelişmelerini hızlı, anlaşılır ve güvenilir bir haber deneyimiyle sunmak için tasarlanmış modern haber platformu.",categories:"Kategoriler",services:"İçerik",corporate:"Kurumsal",legal:"Bilgi",demo:"Bu arayüz demo amaçlıdır. Kur verileri canlı finans API'si değildir.",search:"Haber Ara",member:"GLOBALNEWS Üyeliği",memberSub:"Favori haberlerini kaydetmek ve kişisel akışını oluşturmak için hesabını kullan.",continue:"Devam Et",cookie:"Bu demo site deneyimi için çerezler kullanılabilir."},
+en:{world:"World",business:"Business",technology:"Technology",sport:"Sport",culture:"Culture",science:"Science",login:"Login / Sign Up",breaking:"BREAKING",read:"Read Story →",latest:"Latest News",featured:"Featured Stories",featuredSub:"Selected developments from around the world",markets:"Market Watch",marketsSub:"Demo values — connect a live financial API in production.",fx:"Currencies",gold:"Gold & Silver",popular:"Most Read",popularSub:"Stories readers are following today",video:"Video News",newsletter:"Bring the news to your inbox.",newsletterSub:"Get the day's most important stories.",subscribe:"Subscribe",footerDesc:"A modern news platform designed to deliver important global developments quickly, clearly and reliably.",categories:"Categories",services:"Content",corporate:"Corporate",legal:"Information",demo:"Demo interface. Market values are not live financial data.",search:"Search News",member:"GLOBALNEWS Membership",memberSub:"Use an account to save stories and create a personalized feed.",continue:"Continue",cookie:"Cookies may be used for this demo experience."}
+};
+let lang="tr";
+const slides=[...document.querySelectorAll(".slide")];let current=0;
+const dots=document.getElementById("dots");
+slides.forEach((_,i)=>{const b=document.createElement("button");b.className="dot"+(i===0?" active":"");b.onclick=()=>go(i);dots.appendChild(b)});
+function go(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle("active",n===current));[...dots.children].forEach((d,n)=>d.classList.toggle("active",n===current))}
+document.getElementById("next").onclick=()=>go(current+1);document.getElementById("prev").onclick=()=>go(current-1);setInterval(()=>go(current+1),6500);
+
+const articles={
+1:["WORLD","Küresel gündem yeni bir döneme giriyor","Global agenda enters a new era","https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=85"],
+2:["BUSINESS","Piyasalarda yeni haftanın kritik başlıkları","Key market stories for the new week","https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"],
+3:["TECH","Yapay zekâ teknolojilerinde yeni yarış","A new race in artificial intelligence","https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"],
+4:["WORLD","Diplomasi trafiğinde yoğun hafta","A busy week in international diplomacy","https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=85"],
+5:["BUSINESS","Finans dünyasında veri odaklı dönüşüm","Data-driven transformation in finance","https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=85"],
+6:["TECH","Teknolojide yapay zekâ yatırımları hızlanıyor","AI investments accelerate across technology","https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=85"],
+7:["SPORT","Spor dünyasında sezonun kritik karşılaşmaları","Season-defining matches in world sports","https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85"],
+8:["CULTURE","Sinema ve kültür dünyasından yeni yapımlar","New releases from film and culture","https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=85"],
+9:["SCIENCE","Bilim insanlarından yeni araştırma","Scientists announce a new study","https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85"],
+10:["VIDEO","Günün özeti","Daily news briefing","https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=85"],
+11:["WORLD","Dünya gündemi","World briefing","https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=85"],
+12:["TECH","Teknoloji gündemi","Technology briefing","https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"],
+13:["SPORT","Spor gündemi","Sports briefing","https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85"]
+};
+function openArticle(id){let a=articles[id]||articles[1];document.getElementById("articleTag").textContent=a[0];document.getElementById("articleTitle").textContent=lang==="tr"?a[1]:a[2];document.getElementById("articleImg").src=a[3];document.getElementById("articleMeta").textContent="16 August 2026 • 6 min read";document.getElementById("articleBody").innerHTML=lang==="tr"?`<p>Bu haber sayfası, GLOBALNEWS tasarımının örnek içerik deneyimini göstermek amacıyla hazırlanmıştır.</p><p>Gerçek backend entegrasyonunda haber başlığı, özet, içerik, yazar, kategori, etiketler, görseller ve SEO alanları veritabanından güvenli şekilde getirilecektir.</p><p>Üretim ortamında içerik doğrulama, editoryal workflow, cache, CDN, rate limiting ve güvenlik kontrolleri uygulanmalıdır.</p>`:`<p>This article page demonstrates the GLOBALNEWS content experience.</p><p>In production, the headline, summary, body, author, category, tags, media and SEO fields would be loaded securely from the database.</p><p>Content validation, editorial workflow, caching, CDN, rate limiting and security controls should be applied in production.`;document.getElementById("articleOverlay").classList.add("open")}
+function route(){const m=location.hash.match(/^#article-(\d+)$/);if(m)openArticle(m[1])}
+window.addEventListener("hashchange",route);
+
+function setLang(){lang=lang==="tr"?"en":"tr";document.documentElement.lang=lang;document.getElementById("langBtn").textContent=lang==="tr"?"EN":"TR";document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(I18N[lang][k])el.textContent=I18N[lang][k]});document.querySelectorAll("[data-tr]").forEach(el=>el.textContent=lang==="tr"?el.dataset.tr:el.dataset.en);document.getElementById("tickerText").textContent=lang==="tr"?"Küresel piyasalarda hareketlilik • Dünya liderlerinden yeni açıklamalar • Teknoloji sektöründe yeni gelişmeler • Spor dünyasında günün öne çıkanları":"Global markets remain active • New statements from world leaders • Technology sector developments • Top stories in global sports";route()}
+document.getElementById("langBtn").onclick=setLang;
+
+function open(id){document.getElementById(id).classList.add("open")}function close(id){document.getElementById(id).classList.remove("open")}
+document.getElementById("searchBtn").onclick=()=>open("searchOverlay");document.getElementById("authBtn").onclick=()=>open("authOverlay");
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>close(b.dataset.close));
+document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)o.classList.remove("open")}));
+const allText=[...document.querySelectorAll(".card h3")];
+document.getElementById("searchInput").addEventListener("input",e=>{const q=e.target.value.toLowerCase();document.getElementById("results").innerHTML=allText.filter(x=>x.textContent.toLowerCase().includes(q)).map(x=>`<div class="result">${x.textContent}<small style="display:block;color:#8a949e;margin-top:4px">GLOBALNEWS</small></div>`).join("")});
+
+const fx=[["USD / TRY","40.62","40.74","+0.42%"],["EUR / TRY","47.55","47.72","+0.31%"],["GBP / TRY","54.89","55.18","-0.12%"],["CHF / TRY","50.72","51.03","+0.18%"]];
+const metals=[["Külçe Altın","4.895,20","4.914,70","+0.65%"],["Tam Altın","32.105","32.690","+0.58%"],["Çeyrek Altın","8.010","8.185","+0.55%"],["Gram Altın","4.895,20","4.914,70","+0.65%"],["Gümüş Külçe","67.420","68.150","+0.91%"],["Gümüş Gram","67.42","68.15","+0.91%"]];
+function rows(data){return data.map(x=>`<tr><td><b>${x[0]}</b></td><td>${x[1]}</td><td>${x[2]}</td><td class="${x[3][0]==='-'?'down':'up'}">${x[3]}</td></tr>`).join("")}
+document.getElementById("fxTable").innerHTML=rows(fx);document.getElementById("metalTable").innerHTML=rows(metals);document.getElementById("fxTime").textContent="Son güncelleme: 16 Ağustos 2026 • Demo";
+
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.08});document.querySelectorAll(".reveal").forEach(e=>observer.observe(e));
+document.getElementById("cookieOk").onclick=()=>document.getElementById("cookie").remove();
+document.getElementById("menuBtn").onclick=()=>document.querySelector(".navlinks").style.cssText="display:flex;position:absolute;top:68px;left:0;right:0;padding:18px;background:#0b1016;flex-direction:column";
+route();
+</script>
+</body>
+</html>
